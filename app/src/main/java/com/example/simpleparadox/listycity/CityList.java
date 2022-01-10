@@ -1,7 +1,9 @@
 package com.example.simpleparadox.listycity;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 /**
  * This is a class that keeps track of a list of city objects
  */
@@ -10,8 +12,8 @@ public class CityList {
 
     /**
      * This adds a city to the list if the city does not exist
-     *
-     * @param city This is a candidate city to add
+     * @param city
+     *      This is a candidate city to add
      */
     public void add(City city) {
         if (cities.contains(city)) {
@@ -19,26 +21,35 @@ public class CityList {
         }
         cities.add(city);
     }
-
     /**
-     * This deletes a city to the list if the city does  exist
-     *
-     * @param city This is a candidate city to delete
+     * This deletes a city from the list if the city exist
+     * @param city
+     *      This is a candidate city to delete
      */
-    public void delete(City city) {
-        if (cities.contains(city)) {
+    public void delete(City city){
+        if(cities.contains(city)){
             cities.remove(city);
-        } else {
+        }else{
             throw new IllegalArgumentException();
         }
     }
 
     /**
-     * This return  the no of cities exists is cityList
-     *
-     * @return This return the size of citylist
+     * This returns a sorted list of cities
+     * @return
+     *      Return the sorted list
      */
-    public int Size() {
+    public List<City> getCities() {
+        List<City> list = cities;
+        Collections.sort(list);
+        return list;
+    }
+
+    /**
+     * This returns the number of cities in cities List.
+     * @return  size of cities List.
+     */
+    public int getSize(){
         return cities.size();
     }
 }
